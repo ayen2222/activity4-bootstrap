@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="BOOSTRAP/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f6fdce;
+        }
+        .section-title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-sm bg-danger">
+            <div class="container-fluid d-flex justify-content-between align-items-center">
+                <img src="/logo/459068193_1046042766924736_8674396526271571445_n.jpg" alt="Profile" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover; margin-right: 10px;">
+                <!-- Left-aligned links -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: rgb(255, 255, 255);">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" style="color: white;">Services</a>
+                    </li>
+                </ul>
+                <!-- Right-aligned Sign In link and Mode Switch -->
+                <div class="d-flex align-items-center">
+                    <div class="form-check form-switch me-3">
+                        <input class="form-check-input" type="checkbox" id="modeSwitch" onclick="toggleMode()">
+                        <label class="form-check-label" for="modeSwitch" style="color: white;">Dark Mode</label>
+                    </div>
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" style="color: white;">Sign in</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Form Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Sign in</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Sign in Form -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="email" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" >
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100" onclick="event.preventDefault(); window.location.href='/dashboard.html';">Sign in</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Vision Section -->
+            <div class="col-md-3">
+                <div class="vision">
+                    <h2 class="section-title">LET'S TRAVEL</h2>
+                    <p>LIFE IS SHORT AND THE WORLD IS WIDE, THE SOONER YOU START EXPLORING IT, THE BETTER</p>
+                </div>
+            </div>
+            <!-- Carousel Section -->
+            <div class="col-md-6">
+                <h2 style="text-align: center;">CAROUSEL</h2>
+                <div id="traveldestinationCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/380742579_1096254871785126_4796125375562014085_n.jpg" class="d-block w-100" alt="Dream House 1" style="width: 100%; height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/387328973_401990232174262_1972251258420370658_n.jpg" class="d-block w-100" alt="Dream House 2" style="width: 100%; height: 400px; object-fit: cover;">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/458481837_834546698605837_2705767328157024757_n.jpg" class="d-block w-100" alt="Dream House 3" style="width: 100%; height: 400px; object-fit: cover;">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#traveldestinationCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#traveldestinationCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Mission Section -->
+            <div class="col-md-3">
+                <div class="mission">
+                    <h2 class="section-title">TRAVEL</h2>
+                    <p>TRAVEL IS ABOUT THE GORGEOUS FEELING OF TEETERING IN THE UNKNOWN.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Title Section -->
+    <div class="container mt-5">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h3>Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <button class="btn btn-danger">Read More...</button>
+            </div>
+            <div class="col-md-4">
+                <h3>Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <button class="btn btn-danger">Read More...</button>
+            </div>
+            <div class="col-md-4">
+                <h3>Featured title</h3>
+                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+                <button class="btn btn-danger">Read More...</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center mb-3">
+                <!-- Footer Navigation Links -->
+                <a href="#" class="mx-2">Home</a>
+                <a href="#" class="mx-2">Contact</a>
+                <a href="#" class="mx-2">About</a>
+                <a href="#" class="mx-2">Services</a>
+                <a href="#" class="mx-2">Developer</a>
+            </div>
+            <p>&copy; 2024 Dream Travel Destination. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript to toggle light/dark mode -->
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            body.classList.toggle('bg-dark');
+            body.classList.toggle('text-light');
+        }
+    </script>
+
+    <!-- Bootstrap JS (add your script source here) -->
+    <script src="BOOSTRAP/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

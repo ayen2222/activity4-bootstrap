@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard with Dark Mode</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            height: 100%;
+            background-color: #343a40;
+            position: fixed; /* Change to fixed */
+            top: 60px;
+            left: 0;
+            padding-top: 20px;
+            color: white;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            transform: translateX(0);
+            opacity: 1;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+            opacity: 0; /* Fade out */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+            color: #ffffff;
+        }
+
+        .sidebar .nav-header {
+            color: #adb5bd;
+            font-size: 12px;
+            padding: 10px 15px;
+            text-transform: uppercase;
+        }
+
+        /* Top Navbar Styling */
+        .top-navbar {
+            background-color: rgba(175, 32, 32, 0.932);
+            height: 60px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .top-navbar .navbar-brand {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .top-navbar input {
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        /* Main Content Styling */
+        .main-content {
+            margin-left: 250px; /* Adjust for sidebar width */
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: calc(100vh - 60px); /* Adjust for top navbar height */
+            transition: margin-left 0.3s; /* Include margin-left in transition */
+        }
+
+        .sidebar.hidden + .main-content {
+            margin-left: 0; /* Adjust margin when sidebar is hidden */
+        }
+
+        /* Dark Mode Main Content */
+        body.dark-mode .main-content {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .main-content h2 {
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        .main-content h2 span {
+            color: #28a745;
+        }
+
+        /* Breadcrumb Styling */
+        .breadcrumb {
+            background-color: transparent;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="nav-header">Core</div>
+        <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <div class="nav-header">Interface</div>
+        <a href="#"><i class="fas fa-columns"></i> Layouts</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Pages</a>
+        <div class="nav-header">Addons</div>
+        <a href="#"><i class="fas fa-chart-line"></i> Charts</a>
+        <a href="#"><i class="fas fa-table"></i> Tables</a>
+    </div>
+
+    <!-- Top Navbar -->
+    <div class="top-navbar">
+        <button id="sidebarToggle" class="btn btn-light me-2">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-brand">
+            <img src="logo/logo.jpg" width="56px" height="56px" style="border-radius: 50%;">
+        </div>
+        <div class="d-flex align-items-center ms-auto">
+            <div class="search-bar me-3">
+                <input type="text" placeholder="Search">
+                <i class="fas fa-search"></i>
+            </div>
+            <!-- Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-outline-light dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li><a class="dropdown-item" href="#">Activity Log</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="../index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content" id="content">
+        <div class="container-fluid">
+            <h2> AYEN'S <span style="color: #060706;">DASHBOARD</span></h2>
+            <nav aria-label="breadcrumb"> 
+                <a href="#" class="breadcrumb-item">Dashboard</a> 
+                <a href="#" class="breadcrumb-item active">Chart</a>
+            </nav>
+            <div class="row">
+                <!-- Colored Cards -->
+                <div class="col-lg-3">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Primary Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Warning Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Success Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Danger Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Charts -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Area Chart</h3>
+                    <canvas id="areaChart"></canvas>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Bar Chart</h3>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Sidebar toggle functionality
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden'); // Toggle sidebar visibility
+        });
+
+        // Example chart configurations
+        const areaCtx = document.getElementById('areaChart').getContext('2d');
+        const areaChart = new Chart(areaCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mar 1', 'Mar 3', 'Mar 5', 'Mar 7', 'Mar 9', 'Mar 11', 'Mar 13'],
+                datasets: [{
+                    label: 'Sessions',
+                    data: [12000, 15000, 22000, 17000, 18000, 23000, 29000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    fill: true,
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12000, 19000, 3000, 5000, 2000, 3000],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
